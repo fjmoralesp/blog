@@ -1,5 +1,8 @@
+const usersService = require('../services/users.service');
 
-function get(req, res) {
+async function get(req, res) {
+    await usersService.get();
+
     res.send({
         message: 'Hello world!',
     });
