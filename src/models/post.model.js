@@ -8,7 +8,7 @@ const Post = sequelize.define('Post', {
         validate: {
             len: {
                 args: [2, 255],
-                msg: 'Title length should be between 2 and 255',
+                msg: 'title length should be between 2 and 255',
             },
         },
     },

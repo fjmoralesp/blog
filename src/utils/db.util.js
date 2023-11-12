@@ -4,7 +4,7 @@ const Post = require('../models/post.model');
 const Comment = require('../models/comment.model');
 
 async function sync() {
-    await sequelize.sync({ alter: true });
+    await sequelize.sync();
     console.log('All models synchronized successfully');
 }
 

@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3001;
 const usersRouter = require('./src/routes/users.route');
+const postsRouter = require('./src/routes/posts.route');
+const commentsRouter = require('./src/routes/comments.route');
 const dbUtil = require('./src/utils/db.util');
 const errorMiddleware = require('./src/middlewares/error.middleware');
 
@@ -21,6 +23,8 @@ app.use(bodyParser.json());
  * Add routes
  */
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
+app.use('/comments', commentsRouter);
 
 /**
  * Set final global middlewares

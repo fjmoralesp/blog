@@ -8,7 +8,10 @@ function auth(user, password) {
         throw new Error('Given password does not match');
     }
 
-    const token = jwt.sign({ name: user.username }, jwtConfig.secret, { expiresIn: jwtConfig.expires })
+    const token = jwt.sign(
+        { name: user.username, id: user.id },
+        jwtConfig.secret,
+        { expiresIn: jwtConfig.expires })
 
     return { username: user.username, token };
 }
