@@ -1,13 +1,17 @@
 const sequelize = require('../config/db.config');
+const User = require('../models/user.model');
 
-async function get() {
-    try {
-        await sequelize.authenticate();
-    } catch (error) {
-        console.error(error);
-    }
+async function find(username) {
+  return await User.findOne({ where: { username } });
+}
+
+async function create(username, password) {
+  const user = await User.create({ username, password })
+
+  return await find(username);
 }
 
 module.exports = {
-  get,
+  find,
+  create,
 };
