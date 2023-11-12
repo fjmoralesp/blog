@@ -11,13 +11,22 @@ const User = sequelize.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false,
+        get() {
+            const rawValue = this.getDataValue('password');
+            return rawValue ? Math.trunc(rawValue) : null;
+        },
         set(value) {
             this.setDataValue('password', hash(value));
-        }
+        },
     }
 }, {
     defaultScope: {
         attributes: { exclude: ['password'] },
+    },
+    scopes: {
+        withPassword: {
+            attributes: { include: ['password'] },
+        },
     },
 });
 

@@ -30,4 +30,11 @@ router.post(
     usersController.create
 );
 
+router.post(
+    '/login',
+    usernameChain,
+    passwordChain,
+    usersController.login
+);
+
 module.exports = router;
