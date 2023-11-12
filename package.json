@@ -1,0 +1,23 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "blog api backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fjmoralesp/blog-api.git"
+  },
+  "author": "Francisco Morales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fjmoralesp/blog-api/issues"
+  },
+  "homepage": "https://github.com/fjmoralesp/blog-api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
