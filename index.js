@@ -7,9 +7,10 @@ const dbUtil = require('./src/utils/db.util');
 const errorMiddleware = require('./src/middlewares/error.middleware');
 
 /**
- * Perform models synchronization
+ * Perform model configuration
  */
 dbUtil.sync();
+dbUtil.registerRelations();
 
 /**
  * Set init global middlewares
