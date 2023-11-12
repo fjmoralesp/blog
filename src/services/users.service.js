@@ -6,7 +6,7 @@ async function find(username) {
 }
 
 async function create(username, password) {
-  const user = await User.create({ username, password })
+  const user = await User.create({ username, password });
 
   return await find(username);
 }
