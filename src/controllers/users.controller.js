@@ -1,6 +1,13 @@
 const usersService = require('../services/users.service');
+const { validationResult } = require('express-validator');
 
 async function find(req, res, next) {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+        res.send({ errors: result.array() });
+        return;
+    }
+
     try {
         const { username } = req.body;
         const user = await usersService.find(username);
@@ -14,6 +21,12 @@ async function find(req, res, next) {
 }
 
 async function create(req, res, next) {
+    const result = validationResult(req);
+    if (!result.isEmpty()) {
+        res.send({ errors: result.array() });
+        return;
+    }
+
     try {
         const { username, password } = req.body;
         const user = await usersService.create(username, password);
