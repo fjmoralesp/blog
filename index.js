@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const port = 3001;
 const usersRouter = require('./src/routes/users.route');
 const postsRouter = require('./src/routes/posts.route');
@@ -17,6 +18,7 @@ dbUtil.registerRelations();
 /**
  * Set init global middlewares
  */
+app.use(cors())
 app.use(bodyParser.json());
 
 /**
