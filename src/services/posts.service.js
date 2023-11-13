@@ -5,11 +5,8 @@ async function create(title, body, user) {
     return await Post.create({ title, body, UserId: user.id });
 }
 
-async function read(userId) {
-    return await Post.findAll({
-        where: { UserId: userId },
-        include: Comment,
-    });
+async function read() {
+    return await Post.findAll({ include: Comment });
 }
 
 async function update(postId, data) {

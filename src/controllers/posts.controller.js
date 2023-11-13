@@ -29,8 +29,7 @@ async function read(req, res, next) {
     }
 
     try {
-        const { userId } = req.query;
-        const posts = await postsService.read(userId);
+        const posts = await postsService.read();
         res.send({
             message: 'posts found',
             data: posts,

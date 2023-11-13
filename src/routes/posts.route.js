@@ -21,14 +21,6 @@ const bodyChain = body('body')
     .notEmpty()
     .withMessage('body is empty');
 
-const userIdChain = query('userId')
-    .exists()
-    .withMessage('userId does not exist')
-    .notEmpty()
-    .withMessage('userId is empty')
-    .isNumeric()
-    .withMessage('userId is  not number');
-
 const postIdChain = query('postId')
     .exists()
     .withMessage('postId does not exist')
@@ -50,7 +42,6 @@ router.post(
 
 router.get(
     '/',
-    userIdChain,
     authMiddleware,
     postsController.read
 );
