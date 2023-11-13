@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersController = require('../controllers/users.controller');
 const { body, query } = require('express-validator');
+const authMiddleware = require('../middlewares/auth.middleware');
 
 /**
  * Set validation chains
@@ -27,7 +28,7 @@ const usernameQueryChain = query('username')
 /**
  * Set routes
  */
-router.get('/', usernameQueryChain, usersController.find);
+router.get('/me', authMiddleware, usersController.find);
 
 router.post(
     '/',

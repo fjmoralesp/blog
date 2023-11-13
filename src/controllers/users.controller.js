@@ -10,8 +10,8 @@ async function find(req, res, next) {
     }
 
     try {
-        const { username } = req.query;
-        const user = await usersService.find(username);
+        const { user: { id } } = req;
+        const user = await usersService.find(id);
         res.send({
             message: 'user found',
             data: user,

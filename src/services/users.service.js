@@ -1,7 +1,7 @@
 const User = require('../models/user.model');
 
-async function find(username) {
-  return await User.findOne({ where: { username } });
+async function find(id) {
+  return await User.findOne({ where: { id } });
 }
 
 async function findWithPassword(username) {
